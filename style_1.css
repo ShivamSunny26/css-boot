@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin:  0;
+    padding: 0;
+    background-color: #F0F0F0;
+}
+
+.container {
+    max-width: 100vh;
+    margin: auto;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px auto;
+    border-radius: 8px;
+}
+
+.header {
+    background-color: #00b74d;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: none;
+    width: 400px;
+    height: 300px;
+    margin: 2.5px auto;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.profile-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px; 
+    width: 400px;
+    margin: 2.5px auto;
+    border: 2px solid grey;
+    margin-top: 25px;
+}
+
+.profile-section p{
+    color: #555;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 10px 0;
+}
+
+.profile-pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic img{
+    width: 100%;
+    height: auto;
+}
+
+.see-profiles {
+    display: block;
+    text-align: left;
+    color: blue;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    margin: 2.5px auto;
+}
+
+.card{
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    overflow: hidden;
+}
+
+.card img{
+    width: 100%;
+    height: auto;
+}
+
+.card-content{
+    padding: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-description{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.subscribe-icon {
+    float: right;
+}
+
+.view-details {
+    background-color: white;
+    color: #1a72e8;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    display:block;
+    width: 150px;
+}
+
+.container3{
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+}
+
+.container3 h2{
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.container3 h1{
+    font-family: cursive;
+    font-size: 3rem;
+}
+input[type="email"],input[type="password"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: poiner;
+    font-size: 1em;
+}
+
+.links {
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+#p-node{
+   font-size: 10px;
+   font-weight: lighter; 
+}
