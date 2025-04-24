@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 400px;
+    height: 400px;
+    background-color: grey;
+    padding: 10px;
+    margin: 35px;
+}
+
+.photo img{
+    width: 350px;
+    height: 100px;
+}
