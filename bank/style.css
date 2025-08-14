@@ -1,0 +1,192 @@
+* {
+            box-sizing: border-box;
+            /* margin: 0;
+            padding: 0; */
+        }
+
+        body {
+            background: #311898;
+            height: 100%;
+            position: relative;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: #311898;
+            height: 700px;
+            width: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        #container-header {
+            color: #ffffff;
+            background: rgba(94, 62, 208, 0.6);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: auto;
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+        }
+        #container-body h3{
+            text-align: center;
+            font-size: x-large;
+            
+            color: #ffffff;
+        }
+        #container-body {
+            background: rgba(94, 62, 208, 0.6);
+            height: 400px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(3px);
+        }
+
+        footer {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .logout-btn{
+            padding: 8px 25px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .logout-btn:hover{
+            transform: scale(1.2);
+        }
+
+
+        .services {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 50px;
+        }
+
+        @media (max-width:400px){
+            .services{
+                display: flex;
+                flex-direction: column;
+                align-items: space-evenly;
+            }
+
+        }
+
+        .sub {
+            width: 200px;
+            /*background-image: linear-gradient(to right, #0c969c, #0a7075);*/
+            box-shadow: 10px 10px 20px #aab7b7,
+                        -10px -10px 20px #2e4156;
+            border-radius: 20px 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .sub p {
+            color: rgb(90,90,90);
+            font-size: xx-large;
+            text-decoration: underline;
+            outline: none;
+        }
+
+        .sub p:focus, p:active {
+            outline: none;
+        }
+
+        #transaction{
+            padding-bottom: 10px;
+        }
+        .animation{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animation .circle {
+            width: 689px;
+            height: 689px;
+            display: block;
+            border-radius: 50%;
+            background: linear-gradient(131.92deg, rgb(88, 17,207)
+             14.55%, rgba(49, 24, 152, 0.5) 95.62%);
+            position: fixed;
+        }
+
+
+        .animation .one{
+            left: 40%;
+            top: -276px;
+            animation: MoveX 5s ease infinite;
+        }
+
+        @keyframes MoveX{
+            100%, 0%{
+                transform: translate(0, 0);
+            }
+            50%{
+                transform: translate(30px, -70px);
+            }
+        }
+
+        .animation .two{
+            left: -211px;
+            top: 105px;
+            animation: MoveY 5s ease infinite;
+        }
+
+        @keyframes MoveY{
+            100%, 0%{
+                transform: translateX(0);
+            }
+            50%{
+                transform: translateX(-70px);
+            }
+        }
+
+        .animation .three{
+            left: 70%;
+            top: 70px;
+            animation: MoveX 6s ease infinite;
+        }
+
+        .animation .circle.four{
+            width: 387px;
+            height: 387px;
+            display: block;
+            border-radius: 50%;
+            background:#6F1898;
+            opacity: 0.8;
+            position: fixed;
+            right: -5%;
+            top: -15%;
+            filter: blur(70px);
+        }
