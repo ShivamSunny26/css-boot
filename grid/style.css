@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(59, 57, 57);
+    display: grid;
+    padding: 5px;
+    /* row-gap: 5px;
+    column-gap: 10px; */
+    gap: 5px;
+    grid-template:
+    [row1-start] "header header header" 10px [row1-end]
+    [row2-start] auto [row2-end]
+    [row3-start] "footer footer footer" 10px [row3-end]
+    / auto auto auto;
+}
+
+header, footer{
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    border: 2px solid black;
+}
+
