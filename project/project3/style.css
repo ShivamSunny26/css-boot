@@ -21,19 +21,14 @@ body{
     background: aqua;
     width: auto;
     height: 100px;
+    display: grid;
+    grid-template-rows: ;
+}
+
+.logo{
+    background: blue;
 }
 
 .navBar{
-    
-}
-.header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    
-}
-.header img{
-    width: 200px;
-    height: auto;
+    background: red;
 }
