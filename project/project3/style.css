@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:azure;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container{
+    /* display: flex; */
+    background-color: azure;
+    width: 100vw;
+    height: 100vh;
+}
+
+.headerContainer{
+    background: aqua;
+    width: auto;
+    height: 100px;
+}
+
+.navBar{
+    
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+}
+.header img{
+    width: 200px;
+    height: auto;
+}
