@@ -1,0 +1,265 @@
+:root {
+    --ink: #0f172a;
+    --muted: #475569;
+    --brand: #14532d;
+    --brand-2: #16a34a;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --ring: rgba(20, 83, 45, .2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"
+}
+
+a {
+    color: var(--brand-2);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 24px
+}
+
+.grid {
+    display: grid;
+    gap: 16px
+}
+
+.grid.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.grid.cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+
+.grid.cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr))
+}
+
+@media (max-width:900px) {
+
+    .grid.cols-3,
+    .grid.cols-4 {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .grid.cols-2 {
+        grid-template-columns: 1fr
+    }
+}
+
+@media (max-width:640px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
+    z-index: 10
+}
+
+.navwrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand), #0ea5e9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .12)
+}
+
+.brand h1 {
+    font-size: 18px;
+    margin: 0
+}
+
+.quick {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04)
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border-color: transparent
+}
+
+.btn:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08)
+}
+
+.hero {
+    padding: 56px 0 24px
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin: 0 0 8px
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0
+}
+
+.badgebar {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px
+}
+
+.badge {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 600
+}
+
+.section {
+    margin: 36px 0
+}
+
+.section h3 {
+    margin: 0 0 12px;
+    font-size: 22px
+}
+
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .06)
+}
+
+.list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff
+}
+
+.item small {
+    color: var(--muted)
+}
+
+.kpis {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap
+}
+
+.kpi {
+    flex: 1 1 160px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center
+}
+
+.kpi h4 {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: var(--muted)
+}
+
+.kpi .num {
+    font-size: 28px;
+    font-weight: 800
+}
+
+.foot {
+    margin-top: 28px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 18px;
+    color: var(--muted);
+    font-size: 14px
+}
+
+.pill {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    margin: 4px 6px
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px
+}
+
+@media (max-width:1100px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media (max-width:720px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
