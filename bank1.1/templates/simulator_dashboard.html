@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gateway Simulator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    th { background: #f4f4f4; }
+    .btn { padding: 4px 8px; border: none; cursor: pointer; border-radius: 4px; }
+    .approve { background: #28a745; color: white; }
+    .reject { background: #dc3545; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Gateway Simulator Dashboard</h1>
+  <table>
+    <tr><th>Transfer Ref</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+    {% for ref, tx in transfers.items() %}
+    <tr>
+      <td>{{ ref }}</td>
+      <td>{{ tx.amount }}</td>
+      <td>{{ tx.status }}</td>
+      <td>
+        {% if tx.status == "PENDING" %}
+        <a href="/manual/{{ ref }}/approve" class="btn approve">Approve</a>
+        <a href="/manual/{{ ref }}/reject" class="btn reject">Reject</a>
+        {% else %}
+        —
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

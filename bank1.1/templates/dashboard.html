@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard - BGB Bank{% endblock %}
+
+{% block content %}
+<div class="dashboard-grid">
+    <div class="card-column">
+        <!-- Account Summary Card -->
+        <div class="card mb-6">
+            <div class="card-header">
+                <h3 class="card-title">Account Summary</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Account Holder:</strong> {{ user.username }}</p>
+                <p><strong>Account Number:</strong> {{ user.account_no }}</p>
+                <div class="balance-info mt-4">
+                    <h4 class="text-xl font-bold">Current Balance:</h4>
+                    <span class="balance-amount">
+                        ₹{{ user.balance | float | round(2) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Quick Actions</h3>
+            </div>
+            <div class="card-body action-buttons">
+                <a href="{{ url_for('transactions') }}" class="btn btn-primary">
+                    <span class="btn-icon">💰</span> Transfer Money
+                </a>
+                <a href="{{ url_for('transactions') }}" class="btn btn-secondary">
+                    <span class="btn-icon">📋</span> View Transactions
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">
+                    <span class="btn-icon">🚪</span> Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transactions Section -->
+    <div class="transactions-column">
+        <div class="card">
+            <div class="card-header flex justify-between items-center">
+                <h3 class="card-title">Recent Transactions</h3>
+                <a href="{{ url_for('transactions') }}" class="link-text">View All</a>
+            </div>
+            <div class="card-body transaction-list">
+                {% if transactions %}
+                    {% for tx in transactions %}
+                    <div class="transaction-item {% if tx.from_account == user.account_no %}sent{% else %}received{% endif %}">
+                        <div class="transaction-details">
+                            <span class="transaction-type">
+                                {% if tx.from_account == user.account_no %}
+                                    Transfer to {{ tx.to_account }}
+                                {% else %}
+                                    Received from {{ tx.from_account }}
+                                {% endif %}
+                            </span>
+                            <span class="transaction-note">{{ tx.note }}</span>
+                            <span class="transaction-date">{{ tx.timestamp.strftime('%d %b %Y, %H:%M') }}</span>
+                        </div>
+                        <div class="transaction-amount">
+                            <span class="amount-value">
+                                {% if tx.from_account == user.account_no %}
+                                    - ₹{{ tx.amount }}
+                                {% else %}
+                                    + ₹{{ tx.amount }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center text-gray-500">No transactions yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

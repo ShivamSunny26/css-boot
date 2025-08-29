@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}Transaction - BGB Bank{% endblock %}
+
+{% block content %}
+<div class="transaction-container">
+    <div class="card transaction-card">
+        <h2 class="card-title">Initiate a Transfer</h2>
+        
+        {% if message %}
+        <div class="flash-wrap">
+            <div class="flash {% if 'success' in message|lower %}success{% else %}danger{% endif %}">{{ message }}</div>
+        </div>
+        {% endif %}
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('internal')">Internal Transfer</button>
+            <button class="tab-btn" onclick="showTab('interbank')">Interbank Transfer</button>
+        </div>
+
+        <!-- Internal Transfer Form -->
+        <div id="internal" class="tab-content active">
+            <form action="{{ url_for('transactions') }}" method="POST" class="transfer-form">
+                <div class="form-group">
+                    <label for="to_account">Recipient's Account Number</label>
+                    <input type="text" id="to_account" name="to_account" placeholder="Enter 10-digit account number" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount_internal">Amount</label>
+                    <input type="number" id="amount_internal" name="amount" step="0.01" min="0.01" required>
+                </div>
+                <div class="mt-6 text-right">
+                    <button type="submit" class="btn btn-primary">Complete Transfer</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Interbank Transfer Form -->
+        <div id="interbank" class="tab-content">
+            <form action="{{ url_for('interbank_transfer') }}" method="POST" class="transfer-form">
+                <div class="form-group">
+                    <label for="beneficiary_account">Beneficiary Account Number</label>
+                    <input type="text" id="beneficiary_account" name="beneficiary_account" placeholder="Enter beneficiary's account number" required>
+                </div>
+                <div class="form-group">
+                    <label for="beneficiary_ifsc">Beneficiary IFSC Code</label>
+                    <input type="text" id="beneficiary_ifsc" name="beneficiary_ifsc" placeholder="Enter IFSC code" required>
+                </div>
+                <div class="form-group">
+                    <label for="beneficiary_bank">Beneficiary Bank Name</label>
+                    <input type="text" id="beneficiary_bank" name="beneficiary_bank" placeholder="Enter bank name" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount_interbank">Amount</label>
+                    <input type="number" id="amount_interbank" name="amount" step="0.01" min="0.01" required>
+                </div>
+                <div class="mt-6 text-right">
+                    <button type="submit" class="btn btn-primary">Initiate Interbank Transfer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabName) {
+        // Get all tab buttons and tab contents
+        const tabs = document.querySelectorAll('.tab-content');
+        const buttons = document.querySelectorAll('.tab-btn');
+
+        // Remove 'active' class from all tabs and buttons
+        tabs.forEach(tab => tab.classList.remove('active'));
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Add 'active' class to the selected tab and button
+        document.getElementById(tabName).classList.add('active');
+        document.querySelector(`.tab-btn[onclick="showTab('${tabName}')"]`).classList.add('active');
+    }
+</script>
+{% endblock %}

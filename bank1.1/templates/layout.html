@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BGB Bank{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="BGB" class="logo">
+            <div>
+                <h1>
+                    Bihar Gramin Bank
+                </h1>
+                <small class="muted">
+                    Community banking -Digital Demo
+                </small>
+            </div>
+        </div>
+        <nav>
+            {% if session.get('user') %}
+                <span class="nav-user">Hello, {{session.user.username }}</span>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main class="page">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if message %}
+                <div class="flash-wrap">
+                    {% for category, msg in message %}
+                        <div class="flash {{ category }}">{{ msg }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+    </main>
+
+    <footer class="footer">
+        <small>
+            copyright .&copy; shivamkumar
+        </small>
+    </footer>
+</body>
+</html>
