@@ -141,13 +141,13 @@ def dashboard():
     cur = conn.cursor(dictionary=True)
 
     try:
-        cur.execute("SELECT * FROM users WHERE account_no%s", (user['account_no'],))
+        cur.execute("SELECT * FROM users WHERE account_no = %s", (user['account_no'],))
         db_user = cur.fetchone()
 
         if db_user:
             session['user']['balance'] = db_user['balance']
         
-        cur.execute("SELECT * FROM transactions WHERE from_account=%s OR to_account=%S ORDER BY timestamp DESC LIMIT 5",(user['account_no'], user['account_no']))
+        cur.execute("SELECT * FROM transactions WHERE from_account=%s OR to_account=%s ORDER BY timestamp DESC LIMIT 5",(user['account_no'], user['account_no']))
         transactions = cur.fetchall()
         
         return render_template("dashboard.html", user=session['user'], transactions=transactions)
