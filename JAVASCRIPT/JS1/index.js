@@ -1,5 +1,9 @@
-var age=23;
+// {
 
-if (true){
-    console.log(age);
-}
+
+// sayName("Shivam")
+// function sayName(finalName) {
+//     console.log(finalName);
+// }}
+console.log(age);
+var age = 23;
